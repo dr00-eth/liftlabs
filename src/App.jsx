@@ -1,14 +1,14 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import Intercom from '@intercom/messenger-js-sdk';
 import Header from './sections/Header';
-import Hero from './sections/Hero';
+import HeroSection from './sections/Hero';
 import About from './sections/About';
-import Services from './sections/Services';
+import ServicesSection from './sections/Services';
 import CoreTeam from './sections/CoreTeam';
 import Projects from './sections/Projects';
 import BookingSection from './sections/BookingSection';
-import BookingDrawer from './components/BookingDrawer';
 import Footer from './sections/Footer';
+import BookingDrawer from './components/BookingDrawer';
 
 Intercom({
   app_id: 'y0e8zusf',
@@ -27,14 +27,16 @@ const LiftLabsLanding = () => {
   const closeDrawer = () => setIsDrawerOpen(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white font-sans relative">
+    <div className="min-h-screen w-full overflow-x-hidden bg-gradient-to-b from-gray-900 to-gray-800 text-white font-sans">
       <Header />
-      <Hero scrollToSection={scrollToSection} aboutRef={aboutRef} />
-      <About aboutRef={aboutRef} />
-      <Services />
-      <CoreTeam />
-      <Projects />
-      <BookingSection contactRef={contactRef} openDrawer={openDrawer} />
+      <main className="w-full">
+        <HeroSection scrollToSection={scrollToSection} aboutRef={aboutRef} />
+        <About aboutRef={aboutRef} />
+        <ServicesSection />
+        <CoreTeam />
+        <Projects />
+        <BookingSection contactRef={contactRef} openDrawer={openDrawer} />
+      </main>
       <Footer />
       <BookingDrawer isOpen={isDrawerOpen} onClose={closeDrawer} />
     </div>
