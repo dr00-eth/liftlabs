@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
+import Intercom from '@intercom/messenger-js-sdk';
 import { ArrowUpCircle, Code, Brain, Zap, ChevronDown, X } from 'lucide-react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import logoImage from '/logo-transparent.png';
 
 // Booking Drawer component
 const BookingDrawer = ({ isOpen, onClose }) => {
@@ -25,10 +27,9 @@ const BookingDrawer = ({ isOpen, onClose }) => {
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50" onClick={onClose}></div>
       )}
-      <div 
-        className={`fixed bottom-0 left-0 w-full bg-white transition-transform duration-300 ease-in-out transform ${
-          isOpen ? 'translate-y-0' : 'translate-y-full'
-        } z-50 flex flex-col`}
+      <div
+        className={`fixed bottom-0 left-0 w-full bg-white transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-y-0' : 'translate-y-full'
+          } z-50 flex flex-col`}
         style={{ height: drawerHeight, maxHeight: '90vh' }}
       >
         <div className="flex justify-between items-center p-4 border-b bg-gray-100 sticky top-0 z-10">
@@ -38,9 +39,9 @@ const BookingDrawer = ({ isOpen, onClose }) => {
           </button>
         </div>
         <div className="flex-grow overflow-hidden">
-          <iframe 
+          <iframe
             ref={iframeRef}
-            src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2c3mrfHevLi61BnAKmagUILAaB1YRth68ip6NXizp5lwtvP_aO-TIgF-gRae0iOpmKI-Mo-lUA?gv=true" 
+            src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2c3mrfHevLi61BnAKmagUILAaB1YRth68ip6NXizp5lwtvP_aO-TIgF-gRae0iOpmKI-Mo-lUA?gv=true"
             style={{ border: 0, width: '100%', height: '100%' }}
             frameBorder="0"
             title="Google Calendar Booking"
@@ -78,6 +79,10 @@ const HeroSlider = ({ images }) => {
   );
 };
 
+Intercom({
+  app_id: 'y0e8zusf',
+});
+
 const LiftLabsLanding = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const aboutRef = useRef(null);
@@ -104,6 +109,11 @@ const LiftLabsLanding = () => {
       {/* Header */}
       <header className="fixed w-full bg-black bg-opacity-50 backdrop-blur-md z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          {/* <img
+            src={logoImage}
+            alt="Lift Labs LLC Logo"
+            className="h-10 w-auto" // Adjust the height as needed
+          /> */}
           <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-orange-400">
             Lift Labs LLC
           </div>
@@ -127,7 +137,7 @@ const LiftLabsLanding = () => {
                 Leading Innovations For Tomorrow
               </h1>
               <p className="text-2xl mb-8 text-gray-200">Empowering businesses with cutting-edge AI and automation solutions</p>
-              <button 
+              <button
                 onClick={() => scrollToSection(contactRef)}
                 className="bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105"
               >
@@ -136,10 +146,10 @@ const LiftLabsLanding = () => {
             </div>
           </div>
         </div>
-        <ChevronDown 
+        <ChevronDown
           onClick={() => scrollToSection(aboutRef)}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce z-30 cursor-pointer" 
-          size={48} 
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce z-30 cursor-pointer"
+          size={48}
         />
       </section>
 
@@ -198,7 +208,7 @@ const LiftLabsLanding = () => {
           <p className="text-xl mb-8 text-gray-300">
             Ready to elevate your business with cutting-edge AI and automation solutions? Book a consultation with our experts today!
           </p>
-          <button 
+          <button
             onClick={openDrawer}
             className="bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105"
           >
