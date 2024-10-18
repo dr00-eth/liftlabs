@@ -123,7 +123,7 @@ const LiftLabsLanding = () => {
         <div className="absolute inset-0 bg-black bg-opacity-50">
           <div className="absolute inset-0 flex items-center justify-center z-20">
             <div className="text-center px-4">
-              <h1 className="text-6xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-orange-400">
+              <h1 className="text-6xl font-bold mb-4 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-orange-400">
                 Leading Innovations For Tomorrow
               </h1>
               <p className="text-2xl mb-8 text-gray-200">Empowering businesses with cutting-edge AI and automation solutions</p>
