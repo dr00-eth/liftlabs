@@ -1,17 +1,16 @@
 import React from 'react';
-import { X } from 'lucide-react';
 import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
-  } from "../components/ui/dialog"
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "../components/ui/dialog"
 
-const PrivacyPolicy = ({ isOpen, onClose, showCloseButton = true }) => {
+const PrivacyPolicy = ({ isOpen, onClose }) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
-        <DialogHeader className="flex flex-row items-center justify-between">
+        <DialogHeader>
           <DialogTitle className="text-2xl font-bold">Privacy Policy</DialogTitle>
         </DialogHeader>
 
@@ -24,10 +23,26 @@ const PrivacyPolicy = ({ isOpen, onClose, showCloseButton = true }) => {
             <p className="text-gray-600">We collect information that you provide directly to us, including:</p>
             <ul className="list-disc ml-6 mt-2 text-gray-600">
               <li>Name and contact information</li>
+              <li>Mobile phone number and communication preferences</li>
               <li>Business information</li>
-              <li>Communication preferences</li>
               <li>Service usage data</li>
+              <li>SMS message content and metadata</li>
+              <li>Communication history and preferences</li>
             </ul>
+            
+            <div className="mt-4">
+              <h4 className="text-md font-semibold mb-2">SMS Data Collection</h4>
+              <p className="text-gray-600">
+                When you opt in to receive SMS messages from us, we collect and store:
+              </p>
+              <ul className="list-disc ml-6 mt-2 text-gray-600">
+                <li>Your phone number and consent records</li>
+                <li>Date and time of messages sent and received</li>
+                <li>Message content and response history</li>
+                <li>Delivery status information</li>
+                <li>Opt-in and opt-out history</li>
+              </ul>
+            </div>
           </section>
 
           <section className="mb-6">
@@ -35,18 +50,49 @@ const PrivacyPolicy = ({ isOpen, onClose, showCloseButton = true }) => {
             <p className="text-gray-600">We use the information we collect to:</p>
             <ul className="list-disc ml-6 mt-2 text-gray-600">
               <li>Provide and improve our services</li>
-              <li>Communicate with you about our services</li>
+              <li>Send you important service updates and notifications</li>
+              <li>Process and manage your bookings and appointments</li>
               <li>Analyze and enhance our business operations</li>
               <li>Comply with legal obligations</li>
             </ul>
+
+            <div className="mt-4">
+              <h4 className="text-md font-semibold mb-2">SMS Communications</h4>
+              <p className="text-gray-600">
+                We use SMS communications for the following purposes:
+              </p>
+              <ul className="list-disc ml-6 mt-2 text-gray-600">
+                <li>Appointment confirmations and reminders</li>
+                <li>Service updates and notifications</li>
+                <li>Customer support communications</li>
+                <li>Marketing messages (with explicit consent)</li>
+                <li>Account security verification</li>
+              </ul>
+            </div>
           </section>
 
           <section className="mb-6">
-            <h3 className="text-lg font-semibold mb-2">3. Information Sharing</h3>
+            <h3 className="text-lg font-semibold mb-2">3. SMS Consent and Opt-Out</h3>
+            <p className="text-gray-600">
+              Your consent to receive SMS messages is voluntary and can be revoked at any time. You can:
+            </p>
+            <ul className="list-disc ml-6 mt-2 text-gray-600">
+              <li>Opt out by replying STOP to any message</li>
+              <li>Contact us directly to manage your messaging preferences</li>
+              <li>Update your communication preferences in your account settings</li>
+            </ul>
+            <p className="mt-2 text-gray-600">
+              Message and data rates may apply. Message frequency varies. Carrier is not liable for delayed or undelivered messages.
+            </p>
+          </section>
+
+          <section className="mb-6">
+            <h3 className="text-lg font-semibold mb-2">4. Information Sharing</h3>
             <p className="text-gray-600">
               We do not sell your personal information. We may share your information with:
             </p>
             <ul className="list-disc ml-6 mt-2 text-gray-600">
+              <li>SMS service providers and telecommunications carriers</li>
               <li>Service providers and business partners</li>
               <li>Legal authorities when required by law</li>
               <li>Other parties with your consent</li>
@@ -54,27 +100,28 @@ const PrivacyPolicy = ({ isOpen, onClose, showCloseButton = true }) => {
           </section>
 
           <section className="mb-6">
-            <h3 className="text-lg font-semibold mb-2">4. Security</h3>
+            <h3 className="text-lg font-semibold mb-2">5. Security</h3>
             <p className="text-gray-600">
-              We implement appropriate technical and organizational measures to protect your personal information.
+              We implement appropriate technical and organizational measures to protect your personal information, including SMS data. Our security measures include encryption, access controls, and regular security assessments.
             </p>
           </section>
 
           <section className="mb-6">
-            <h3 className="text-lg font-semibold mb-2">5. Your Rights</h3>
+            <h3 className="text-lg font-semibold mb-2">6. Your Rights</h3>
             <p className="text-gray-600">You have the right to:</p>
             <ul className="list-disc ml-6 mt-2 text-gray-600">
               <li>Access your personal information</li>
               <li>Correct inaccurate information</li>
               <li>Request deletion of your information</li>
-              <li>Opt-out of marketing communications</li>
+              <li>Opt-out of SMS and other communications</li>
+              <li>Review your SMS consent and messaging history</li>
             </ul>
           </section>
 
           <section className="mb-6">
-            <h3 className="text-lg font-semibold mb-2">6. Contact Us</h3>
+            <h3 className="text-lg font-semibold mb-2">7. Contact Us</h3>
             <p className="text-gray-600">
-              For questions about this privacy policy or our practices, please contact us at:
+              For questions about this privacy policy, our SMS practices, or our privacy practices in general, please contact us at:
               <br />
               Email: hello@liftlabstx.com
               <br />
