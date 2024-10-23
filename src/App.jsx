@@ -9,6 +9,8 @@ import Projects from './sections/Projects';
 import BookingSection from './sections/BookingSection';
 import Footer from './sections/Footer';
 import BookingDrawer from './components/BookingDrawer';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import { usePrivacyPolicy } from './hooks/usePrivacyPolicy';
 
 Intercom({
   app_id: 'y0e8zusf',
@@ -18,6 +20,7 @@ const LiftLabsLanding = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const aboutRef = useRef(null);
   const contactRef = useRef(null);
+  const { isPrivacyPolicyOpen, handleOpenPrivacyPolicy, handleClosePrivacyPolicy } = usePrivacyPolicy();
 
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: 'smooth' });
@@ -37,8 +40,12 @@ const LiftLabsLanding = () => {
         <Projects />
         <BookingSection contactRef={contactRef} openDrawer={openDrawer} />
       </main>
-      <Footer />
+      <Footer onPrivacyClick={handleOpenPrivacyPolicy} />
       <BookingDrawer isOpen={isDrawerOpen} onClose={closeDrawer} />
+      <PrivacyPolicy 
+        isOpen={isPrivacyPolicyOpen} 
+        onClose={handleClosePrivacyPolicy} 
+      />
     </div>
   );
 };
